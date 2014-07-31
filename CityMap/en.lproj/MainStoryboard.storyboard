@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="6154.17" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" promptedForUpgradeToXcode5="NO" initialViewController="e9w-jA-58I">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+    </dependencies>
+    <scenes>
+        <!--Continent List View Controller - ContinentListViewController-->
+        <scene sceneID="WCn-pA-euI">
+            <objects>
+                <tableViewController title="ContinentListViewController" id="kSH-TN-EnQ" customClass="CMContinentListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7Kv-YG-lzL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.98277142139999996" green="0.99633290819999998" blue="0.83304336180000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContinentCell" textLabel="QTA-Nv-6l0" style="IBUITableViewCellStyleDefault" id="hKb-Gw-PXO" customClass="CMContinentListCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Continent Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTA-Nv-6l0">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="continentname" destination="QTA-Nv-6l0" id="LRw-Ks-chK"/>
+                                    <segue destination="NaF-rQ-hvx" kind="push" identifier="showCities" id="BTy-GU-uhg"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Continents" id="x6Q-NQ-ZsN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mab-4A-gpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="102"/>
+        </scene>
+        <!--Navigation Controller - Map-->
+        <scene sceneID="faA-DX-MCf">
+            <objects>
+                <navigationController title="Map" definesPresentationContext="YES" id="8K9-YV-TnR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="icon-earth-30-30.png" id="3pf-1W-IBa"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BRT-3Z-6O5">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZTq-TR-ekv" kind="relationship" relationship="rootViewController" id="0mU-qL-TXw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fVk-RG-dJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-212" y="844"/>
+        </scene>
+        <!--Map View Controller - Map-->
+        <scene sceneID="Ctw-T5-6LF">
+            <objects>
+                <viewController id="ZTq-TR-ekv" customClass="CMMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qzT-SR-gXF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="qbU-zQ-QF5">
+                                <rect key="frame" x="0.0" y="-44" width="320" height="499"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZTq-TR-ekv" id="fDU-I0-dNW"/>
+                                </connections>
+                            </mapView>
+                            <view contentMode="scaleToFill" id="Tl9-qD-wki">
+                                <rect key="frame" x="0.0" y="411" width="320" height="44"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="KKu-AR-Er4">
+                                        <rect key="frame" x="20" y="12" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TtK-GN-zbl">
+                                        <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="BN3-5L-PDp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="sZe-rz-12I">
+                            <connections>
+                                <action selector="reloadLocations:" destination="ZTq-TR-ekv" id="BOb-9h-VAd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="TtK-GN-zbl" id="Vvb-42-5XK"/>
+                        <outlet property="infoView" destination="Tl9-qD-wki" id="Nau-9L-QU2"/>
+                        <outlet property="loadingIndicator" destination="KKu-AR-Er4" id="E5l-0z-Pks"/>
+                        <outlet property="mapView" destination="qbU-zQ-QF5" id="fuc-Qf-6s6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJx-Rj-rcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="844"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ufV-2d-9xJ">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="e9w-jA-58I" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Nr9-0R-FpM">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="scH-VS-a9Z" kind="relationship" relationship="viewControllers" id="7FH-hC-PKC"/>
+                        <segue destination="8K9-YV-TnR" kind="relationship" relationship="viewControllers" id="Npe-4t-2Fr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLM-Go-8CS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-741" y="504"/>
+        </scene>
+        <!--City List View Controller - CityListViewController-->
+        <scene sceneID="Xec-6S-2as">
+            <objects>
+                <tableViewController title="CityListViewController" id="NaF-rQ-hvx" customClass="CMCityListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aQQ-YS-5lH">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.98277142139999996" green="0.99633290819999998" blue="0.83304336180000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" textLabel="dXc-cY-dbv" detailTextLabel="2oB-Vw-Wn3" style="IBUITableViewCellStyleSubtitle" id="Wg7-tw-iHC" customClass="CMCityListCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="City Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dXc-cY-dbv">
+                                            <rect key="frame" x="10" y="2" width="89" height="22"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Local Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2oB-Vw-Wn3">
+                                            <rect key="frame" x="10" y="24" width="75" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="0.32901169479999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="cityname" destination="dXc-cY-dbv" id="Jfa-ct-3m6"/>
+                                    <outlet property="localname" destination="2oB-Vw-Wn3" id="2xF-Yr-LK0"/>
+                                    <segue destination="1WC-xO-kFd" kind="push" identifier="showDetail" id="hW0-wt-70q"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NaF-rQ-hvx" id="VhT-jW-ePM"/>
+                            <outlet property="delegate" destination="NaF-rQ-hvx" id="8aV-mt-zOM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bQR-To-pi1"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmn-CW-MVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="102"/>
+        </scene>
+        <!--Detail View Controller - DetailViewController-->
+        <scene sceneID="fsN-qe-7xb">
+            <objects>
+                <viewController storyboardIdentifier="DetailView" title="DetailViewController" id="1WC-xO-kFd" customClass="CMDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6JA-fo-Mt1">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="v3k-0o-e90">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Country Name , Continent Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="dOD-eT-awD">
+                                        <rect key="frame" x="20" y="290" width="280" height="37"/>
+                                        <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="28"/>
+                                        <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latitude Number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wRT-It-v18">
+                                        <rect key="frame" x="135" y="342" width="165" height="22"/>
+                                        <fontDescription key="fontDescription" name="Marion-Regular" family="Marion" pointSize="19"/>
+                                        <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Local Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="XGz-Dk-gld">
+                                        <rect key="frame" x="20" y="83" width="280" height="33"/>
+                                        <fontDescription key="fontDescription" name="Optima-Italic" family="Optima" pointSize="30"/>
+                                        <color key="textColor" red="1" green="0.32901169479999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D3U-6S-HFl">
+                                        <rect key="frame" x="20" y="343" width="81" height="22"/>
+                                        <fontDescription key="fontDescription" name="Marion-Bold" family="Marion" pointSize="21"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" text="Longitude Number" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z7W-i6-LVk">
+                                        <rect key="frame" x="135" y="377" width="165" height="22"/>
+                                        <fontDescription key="fontDescription" name="Marion-Regular" family="Marion" pointSize="19"/>
+                                        <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Longitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pjK-Nu-rXA">
+                                        <rect key="frame" x="20" y="378" width="95" height="22"/>
+                                        <fontDescription key="fontDescription" name="Marion-Bold" family="Marion" pointSize="21"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Region" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rDD-wN-Gnn">
+                                        <rect key="frame" x="20" y="413" width="71" height="22"/>
+                                        <fontDescription key="fontDescription" name="Marion-Bold" family="Marion" pointSize="21"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="NtJ-Pe-x0T">
+                                        <rect key="frame" x="20" y="125" width="280" height="157"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="City Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="gG8-YK-4Pq">
+                                        <rect key="frame" x="20" y="19" width="280" height="56"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="48"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Region Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="Ic9-4Y-435">
+                                        <rect key="frame" x="135" y="413" width="165" height="22"/>
+                                        <fontDescription key="fontDescription" name="Marion-Regular" family="Marion" pointSize="19"/>
+                                        <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98277142143615581" green="0.99633290816326525" blue="0.83304336176273674" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DdD-vm-o5f">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5ZC-ra-Zyh">
+                            <connections>
+                                <action selector="share:" destination="1WC-xO-kFd" id="sE1-Js-TIy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cityname" destination="gG8-YK-4Pq" id="x4H-A1-Whs"/>
+                        <outlet property="countrynameNcontinentname" destination="dOD-eT-awD" id="cIq-Rn-Ned"/>
+                        <outlet property="image" destination="NtJ-Pe-x0T" id="43X-We-YAg"/>
+                        <outlet property="latitude" destination="wRT-It-v18" id="jvi-kO-RM4"/>
+                        <outlet property="localname" destination="XGz-Dk-gld" id="gyA-ob-iCE"/>
+                        <outlet property="longitude" destination="Z7W-i6-LVk" id="U94-14-l6g"/>
+                        <outlet property="region" destination="Ic9-4Y-435" id="krN-eZ-KAC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2g-1S-hLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="100"/>
+        </scene>
+        <!--Navigation Controller - List-->
+        <scene sceneID="G6u-Z5-0cU">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="scH-VS-a9Z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" image="icon-list-30-30.png" id="8jH-o6-DJc"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="2Hx-3r-Gw1">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4up-We-BFs">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="kSH-TN-EnQ" kind="relationship" relationship="rootViewController" id="TiZ-J1-8J8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYn-xH-vBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-214" y="97"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-earth-30-30.png" width="30" height="30"/>
+        <image name="icon-list-30-30.png" width="30" height="30"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
